@@ -46,13 +46,15 @@ systemctl restart bluetooth
 mkdir /usr/share/BlueToolkit
 chown -R $SUDO_USER:$SUDO_USER /usr/share/BlueToolkit
 
+
+
 # cloning bluekit
 # git clone https://github.com/sacca97/bluekit.git /usr/share/BlueToolkit/bluekit
-mkdir -p /usr/share/BlueToolkit/bluekit/.logs 
+mkdir -p /usr/share/BlueToolkit/.logs 
 mkdir /usr/share/BlueToolkit/modules
 
-cp -r $PWD/exploits /usr/share/BlueToolkit/bluekit/
-cp -r $PWD/hardware /usr/share/BlueToolkit/bluekit/
+cp -r $PWD/exploits /usr/share/BlueToolkit/
+cp -r $PWD/hardware /usr/share/BlueToolkit/
 
 
 mkdir $TOOLS_DIR -p
@@ -67,23 +69,23 @@ python3 -m pip install git+https://github.com/pybluez/pybluez.git#egg=pybluez #-
 
 # installing bluekit and pyble
 
-pip install git+https://github.com/sacca97/pybtool.git
+# pip install git+https://github.com/sacca97/pybtool.git
 
 # cd /home/sacca/Projects/pybtool
-# pip install -e .
+pip install -e /home/sacca/Projects/pybtool 
 
-pip install git+https://github.com/sacca97/bluekit.git
+# pip install git+https://github.com/sacca97/bluekit.git
 # cd /home/sacca/Projects/fixing_bluetoolkit/bluekit
-# pip install -e .
 
-# For now remove installation since I have my version
-# if [ "$DEV_MODE" = true ]; then
-#     echo "Installing bluekit in development mode..."
-#     pip install -e /usr/share/BlueToolkit/bluekit/
-# else
-#     echo "Installing bluekit..."
-#     pip install /usr/share/BlueToolkit/bluekit/
-# fi
+if [ "$DEV_MODE" = true ]; then
+    echo "Installing bluekit in development mode..."
+    git submodule update --init --recursive
+    pip install -e /home/sacca/Projects/fixing_bluetoolkit/bluekit
+    # pip install -e /usr/share/BlueToolkit/bluekit/
+else
+    echo "Installing bluekit..."
+    pip install git+https://github.com/sacca97/bluekit.git
+fi
 
 ## Installing tools in modules
 cd /usr/share/BlueToolkit/modules
@@ -123,8 +125,8 @@ rm -f esp32driver.zip
 
 #### Installing BLUR
 
-cd $TOOLS_DIR
-git clone https://github.com/francozappa/blur
+# cd $TOOLS_DIR
+git clone https://github.com/francozappa/blur $TOOLS_DIR/blur
 
 #### Installing Internalblue, blueborne, bleedingteeth, custom_exploits
 
@@ -158,10 +160,10 @@ python3 -m pip install https://github.com/seemoo-lab/internalblue/archive/master
 
 #### Blueborne 
 
-cd $TOOLS_DIR/blueborne
+# cd $TOOLS_DIR/blueborne
 git clone https://github.com/sgxgsx/blueborne-CVE-2017-1000251 $TOOLS_DIR/blueborne/blueborne-CVE-2017-1000251
-cd $TOOLS_DIR/blueborne/blueborne-CVE-2017-1000251
-gcc -o blueborne_cve_2017_1000251 blueborne.c -lbluetooth
+# cd $TOOLS_DIR/blueborne/blueborne-CVE-2017-1000251
+gcc -o $TOOLS_DIR/blueborne/blueborne-CVE-2017-1000251/blueborne_cve_2017_1000251 $TOOLS_DIR/blueborne/blueborne-CVE-2017-1000251/blueborne.c -lbluetooth
 export PYTHONPATH=$PYTHONPATH:$(pwd)/tools/blueborne
 
 
