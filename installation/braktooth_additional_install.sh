@@ -9,7 +9,7 @@ sudo apt-get install libc-ares-dev
 #sudo apt install g++ libglib2.0-dev libqt5multimedia5 libsnappy1v5 libsmi2ldbl libc-ares2 libnl-route-3-200  libfreetype6 graphviz libtbb-dev libxss1 libnss3 libspandsp2 libsbc1 libbrotli1 libnghttp2-14 libasound2 psmisc sshpass      libpulse0 libasound2 libpcre2-dev -y
 
 
-wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
+wget https://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 rm -f libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 
