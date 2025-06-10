@@ -133,7 +133,7 @@ sudo python3.10 -m venv bluing
 source bluing/bin/activate
 
 sudo python3.10 -m pip install dbus-python==1.2.18
-sudo python3.10 -m pip install --no-dependencies bluing PyGObject docopt btsm btatt bluepy configobj btl2cap pkginfo xpycommon halo pyserial bthci btgatt log_symbols colorama spinners six termcolor
+sudo python3.10 -m pip install --no-dependencies bluing PyGObject==3.50.0 docopt btsm btatt bluepy configobj btl2cap pkginfo xpycommon halo pyserial bthci btgatt log_symbols colorama spinners six termcolor
 
 cd ../..
 source /usr/share/BlueToolkit/.venv/bin/activate
