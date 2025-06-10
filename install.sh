@@ -67,24 +67,18 @@ python3 -m pip install tabulate colorama
 # Install pybluez
 python3 -m pip install git+https://github.com/pybluez/pybluez.git#egg=pybluez #--break-system-packages
 
-# installing bluekit and pyble
+# installing bluekit and pybtool (scanninf + BLE stuff)
 
-# pip install git+https://github.com/sacca97/pybtool.git
+pip install git+https://github.com/sacca97/pybtool.git
 
-# cd /home/sacca/Projects/pybtool
-pip install -e /home/sacca/Projects/pybtool 
-
-# pip install git+https://github.com/sacca97/bluekit.git
-# cd /home/sacca/Projects/fixing_bluetoolkit/bluekit
 
 if [ "$DEV_MODE" = true ]; then
     echo "Installing bluekit in development mode..."
     git submodule update --init --recursive
-    pip install -e /home/sacca/Projects/fixing_bluetoolkit/bluekit
-    # pip install -e /usr/share/BlueToolkit/bluekit/
+    pip install -e /usr/share/BlueToolkit/bluekit/
 else
     echo "Installing bluekit..."
-    pip install git+https://github.com/sacca97/bluekit.git
+    pip install git+https://github.com/sgxgsx/bluekit.git
 fi
 
 ## Installing tools in modules
@@ -100,7 +94,7 @@ cd ..
 
 # TODO: check if I can detect the phone already
 
-#### Bdaddr (for what?)
+#### Bdaddr 
 git clone https://github.com/thxomas/bdaddr /usr/share/BlueToolkit/modules/bdaddr
 
 cd /usr/share/BlueToolkit/modules/bdaddr
