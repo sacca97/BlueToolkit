@@ -78,7 +78,7 @@ if [ "$DEV_MODE" = true ]; then
     pip install -e /usr/share/BlueToolkit/bluekit/
 else
     echo "Installing bluekit..."
-    pip install git+https://github.com/sgxgsx/bluekit.git
+    pip install git+https://github.com/sacca97/bluekit.git
 fi
 
 ## Installing tools in modules
@@ -90,7 +90,6 @@ git clone https://github.com/sgxgsx/BluetoothAssistant /usr/share/BlueToolkit/mo
 
 cd BluetoothAssistant
 chmod +x install.sh
-cd ..
 
 # TODO: check if I can detect the phone already
 
@@ -99,7 +98,6 @@ git clone https://github.com/thxomas/bdaddr /usr/share/BlueToolkit/modules/bdadd
 
 cd /usr/share/BlueToolkit/modules/bdaddr
 make
-cd ..
 
 
 ## Installing tools in modules/tools
